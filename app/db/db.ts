@@ -1,5 +1,6 @@
 import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 
 import { querylogger } from '@/app/classes/loggers/query';
 
@@ -31,7 +32,8 @@ export function getDb() {
     if (!process.env.DB_URL) {
       throw new Error('DB_URL is not defined in the environment variables.');
     }
-    dbInstance = drizzle(process.env.DB_URL, { logger: querylogger });
+    const sql = neon(process.env.DB_URL);
+    dbInstance = drizzle(sql, { logger: querylogger });
   }
   return dbInstance;
 }

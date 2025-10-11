@@ -1,9 +1,22 @@
-import 'dotenv/config';
+import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 import { eq } from 'drizzle-orm';
 import { usersTable } from '@/app/db/models';
 
-const db = drizzle(process.env.DATABASE_URL!);
+config({ path: '.env.local' });
+
+const sql = neon(process.env.DB_URL!);
+const db = drizzle(sql);
+
+/**
+ * Test seeding the database with a new user
+ * Updating the user's age
+ * Getting all users from the database
+ * Deleting the user
+ *
+ * To run: pnpm tsx app/scripts/seed.ts
+ */
 
 async function main() {
   const user: typeof usersTable.$inferInsert = {
