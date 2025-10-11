@@ -1,0 +1,44 @@
+---
+description: API Routes and Backend Development Standards
+globs: ['app/api/**/*.ts', 'classes/**/*.ts', 'actions/**/*.ts']
+alwaysApply: false
+---
+
+# API & Backend Standards
+
+## API Routes
+
+- Use Next.js App Router API routes in `app/api/`
+- Implement proper error handling and status codes
+- Use Zod for request/response validation
+- Follow RESTful conventions
+- Implement proper authentication/authorization
+
+## Database Operations
+
+- Use Drizzle ORM for all database operations
+- Write migrations for schema changes
+- Use proper transaction handling
+- Implement connection pooling
+- Add proper error handling for database operations
+- Write type-safe queries
+- Use proper error handling
+- Implement connection pooling
+
+## API Responses
+
+- Use consistent response formats
+- Implement proper error handling
+- Use Zod for validation
+- Return appropriate HTTP status codes
+
+## Error Handling
+
+- Use proper HTTP status codes
+- Implement consistent error response format
+- Handle network errors gracefully
+- Provide user-friendly error messages
+- Implement error boundaries for component trees
+- Provide meaningful error messages
+- Log errors appropriately
+- Gracefully degrade functionality

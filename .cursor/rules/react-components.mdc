@@ -1,0 +1,44 @@
+---
+description: React Component Standards and Best Practices
+globs: ['components/**/*.tsx', 'app/**/*.tsx']
+alwaysApply: false
+---
+
+# React Component Standards
+
+## Component Architecture
+
+- Use functional components with hooks
+- Prefer composition over inheritance
+- Use proper TypeScript interfaces for props
+- Implement proper error boundaries
+- Use useMemo or useCallback for performance optimization when needed
+- Keep components focused and single-responsibility
+
+## Component Guidelines
+
+- Place components in appropriate directories based on scope
+- Use index.ts files for clean exports
+- Keep components under 200 lines when possible
+- Extract complex logic into custom hooks
+- Use proper prop drilling or context for state management
+
+## Component Styling
+
+- Use Tailwind utility classes for styling
+- Follow mobile-first responsive design
+- Use consistent spacing and color tokens
+- Avoid custom CSS when possible
+- Use Tailwind's design system tokens
+- Use `cn()` utility for conditional classes
+- Implement dark mode support with next-themes
+- Use CSS variables for theme customization
+- Follow consistent spacing and typography scales
+
+## Performance Optimization
+
+- Use Next.js Image component for images
+- Implement proper code splitting
+- Use useMemo or useCallback for expensive components
+- Optimize bundle size with tree shaking
+- Implement proper caching strategies

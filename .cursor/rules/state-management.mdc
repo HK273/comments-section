@@ -1,0 +1,28 @@
+---
+description: State Management with Zustand and React Hooks
+globs: ['app/store/**/*.ts', 'app/hooks/**/*.ts']
+alwaysApply: false
+---
+
+# State Management Standards
+
+## Zustand Store
+
+- Use Zustand for global state management
+- Keep stores focused and single-responsibility
+- Implement proper TypeScript types for store state
+- Use immer for immutable updates when needed
+- Implement proper persistence when required
+
+## Local State
+
+- Use React hooks for component-local state
+- Prefer `useState` for simple state
+- Implement proper cleanup in useEffect
+
+## Custom Hooks
+
+- Extract complex logic into custom hooks
+- Keep hooks focused and single-responsibility
+- Use proper TypeScript types for hook parameters and return values
+- Implement proper cleanup in useEffect hooks

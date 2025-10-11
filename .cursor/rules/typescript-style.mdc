@@ -1,0 +1,39 @@
+---
+description: TypeScript and Code Style Standards
+globs: ['**/*.ts', '**/*.tsx']
+alwaysApply: false
+---
+
+# TypeScript & Code Style Standards
+
+## TypeScript Guidelines
+
+- Use strict TypeScript with `noEmit: true`
+- Prefer type imports: `import type { ComponentProps } from 'react'`
+- Use proper TypeScript types for all function parameters and return values
+- Avoid `any` type - use proper typing instead
+- Use `unknown` only when all other typing options are exhausted, and always add a comment explaining why
+- Use interface for object shapes, type for unions/primitives
+- Prefer `const` over `let`, avoid `var`
+
+## Import Organization
+
+- Use simple-import-sort plugin rules
+- Group imports: external libraries, internal modules, relative imports
+- Use absolute imports with `@/*` alias for src directory
+- Use `@mocks/*` for test mocks, `@testUtils` for test utilities
+
+## Naming Conventions
+
+- Use PascalCase for components and types
+- Use camelCase for variables, functions, and methods
+- Use kebab-case for file names and directories
+- Use UPPER_SNAKE_CASE for constants
+- Prefix private methods with underscore: `_privateMethod`
+
+## Component Props
+
+- Use TypeScript interfaces for component props
+- Make props optional when appropriate
+- Provide default values when possible
+- Use proper prop validation

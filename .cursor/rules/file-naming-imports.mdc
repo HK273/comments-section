@@ -1,0 +1,27 @@
+---
+description: File Naming Conventions and Import Path Standards
+globs: ["**/*"]
+alwaysApply: false
+---
+
+# File Naming & Import Standards
+
+## File Naming
+
+- Use kebab-case for all files and directories
+- Use PascalCase for component files
+- Use descriptive names that indicate purpose
+
+## Import Paths
+
+- Use `@/*` for src directory imports
+- Use `@mocks/*` for test mock imports
+- Use `@testUtils` for test utility imports
+- Use `@hamlet/*` for Hamlet API imports
+
+## Import Organization
+
+- Use simple-import-sort plugin rules
+- Group imports: external libraries, internal modules, relative imports
+- Use absolute imports with `@/*` alias for src directory
+- Use `@mocks/*` for test mocks, `@testUtils` for test utilities
