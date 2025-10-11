@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
 import { eq } from 'drizzle-orm';
-import { usersTable } from '@/app/db/models';
+import { user } from '@/app/db/models';
 
 config({ path: '.env.local' });
 
@@ -19,35 +19,27 @@ const db = drizzle(sql);
  */
 
 async function main() {
-  const user: typeof usersTable.$inferInsert = {
-    name: 'John',
-    age: 30,
+  const testUser: typeof user.$inferInsert = {
+    id: 'user-123',
+    name: 'John Doe',
     email: 'john@example.com',
   };
 
-  await db.insert(usersTable).values(user);
+  await db.insert(user).values(testUser);
   console.log('New user created!');
 
-  const users = await db.select().from(usersTable);
+  const users = await db.select().from(user);
   console.log('Getting all users from the database: ', users);
-  /*
-  const users: {
-    id: number;
-    name: string;
-    age: number;
-    email: string;
-  }[]
-  */
 
   await db
-    .update(usersTable)
+    .update(user)
     .set({
-      age: 31,
+      name: 'John Updated',
     })
-    .where(eq(usersTable.email, user.email));
+    .where(eq(user.email, testUser.email));
   console.log('User info updated!');
 
-  await db.delete(usersTable).where(eq(usersTable.email, user.email));
+  await db.delete(user).where(eq(user.email, testUser.email));
   console.log('User deleted!');
 }
 
