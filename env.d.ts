@@ -9,7 +9,9 @@
 
 declare namespace NodeJS {
   interface ProcessEnv {
-    NODE_ENV?: "production" | "development" | "test";
+    NODE_ENV?: 'production' | 'development' | 'test';
     DB_URL: string;
+    GOOGLE_CLIENT_ID: string;
+    GOOGLE_CLIENT_SECRET: string;
   }
 }
