@@ -4,6 +4,11 @@ import { nextCookies } from 'better-auth/next-js';
 import { getDb } from '@/app/db/db';
 import * as schema from '@/app/db/models';
 
+/**
+ * Configures better auth with our chosen DB
+ * and sets configurations for sign in / up
+ * options
+ */
 export const auth = betterAuth({
   database: drizzleAdapter(getDb(), {
     provider: 'pg',

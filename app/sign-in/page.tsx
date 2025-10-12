@@ -1,20 +1,9 @@
 'use client';
 
-import { authClient } from '@/lib/auth-client';
+import { handleGoogleSignIn } from '@/lib/auth/utils';
 import { GoogleIcon } from '@/app/components/icons/google-icon';
 
 export default function SignInPage() {
-  const handleGoogleSignIn = async () => {
-    try {
-      await authClient.signIn.social({
-        provider: 'google',
-        callbackURL: '/dashboard',
-      });
-    } catch (error) {
-      console.error('Sign in error:', error);
-    }
-  };
-
   return (
     <div className='flex min-h-screen items-center justify-center bg-gray-50'>
       <div className='w-full max-w-md space-y-8'>
@@ -38,13 +27,6 @@ export default function SignInPage() {
               </span>
               Continue with Google
             </button>
-          </div>
-
-          <div className='text-center'>
-            <p className='text-sm text-gray-600'>
-              By signing in, you agree to our Terms of Service and Privacy
-              Policy
-            </p>
           </div>
         </div>
       </div>
