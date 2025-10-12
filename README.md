@@ -37,8 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # TODO's
 
+- Tidy up this README
 - Convert existing linting into new format
 - Check husky syntax now
-- Tests?
+- Tests? -> https://nextjs.org/docs/app/guides/testing/jest (co-located with components)
 - Break up components in main page
 - No redirect after sign up form email / password
