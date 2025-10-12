@@ -37,8 +37,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # TODO's
 
-- Add cursor rules
-- Add MCP servers for shadcn and neon
 - Convert existing linting into new format
 - Check husky syntax now
 - Tests?
+- Break up components in main page
+- No redirect after sign up form email / password
