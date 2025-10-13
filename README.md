@@ -45,6 +45,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - No redirect after sign up form email / password
 
 # Docs
+
 - https://orm.drizzle.team/docs/get-started/neon-new
 - https://neon.com/docs/guides/nextjs
 - https://www.better-auth.com/docs/installation
