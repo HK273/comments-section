@@ -52,3 +52,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - https://www.better-auth.com/docs/basic-usage
 - https://www.better-auth.com/docs/authentication/google
 - https://www.better-auth.com/docs/integrations/next
+- https://nextjs.org/docs/app/guides/testing/jest
