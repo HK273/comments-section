@@ -4,7 +4,14 @@ This section of the code handles setting up [Drizzle ORM](https://orm.drizzle.te
 
 **PLEASE NOTE: If you want to test any of the Drizzle ORM functionality you must have a valid value set for the DB_URL in .env.local. You can follow the below steps to set up the local Postgres instance**
 
-1. There is a `compose.yaml` file available in the `postgres-local` folder. This will alow you to spin up a test postgres database to work with.
+1. **Install Docker and Container Runtime**: Ensure you have [Docker](https://formulae.brew.sh/formula/docker) installed and choose one of the following container runtime options:
+
+   - **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**
+   - **[Rancher Desktop](https://rancherdesktop.io/)**: An open-source alternative to Docker Desktop
+
+   **Important**: You must start Docker Desktop or Rancher Desktop **before** running the compose file. The container runtime service must be running in the background. On Mac, you can verify it's running by checking for the Docker whale icon in the menu bar, or by running `docker ps` in your terminal.
+
+2. There is a `compose.yaml` file available in the `postgres-local` folder. This will allow you to spin up a test postgres database to work with.
 
 ```bash
 # From within the directory
@@ -17,30 +24,30 @@ docker-compose -f compose.yaml up -d
 
 ```bash
 # From the root of the project
-docker-compose -f src/db/postgres-local/compose.yaml up --build
+docker-compose -f app/db/postgres-local/compose.yaml up --build
 # Detached mode
-docker-compose -f src/db/postgres-local/compose.yaml up -d
+docker-compose -f app/db/postgres-local/compose.yaml up -d
 ```
 
 **You may need to restart Docker if you receive the following errors: ✘ pgadmin Error and/or ✘ postgres Error**
 
-2. Navigate to [http://localhost:5050](http://localhost:5050) which will give you a pgAdmin instance. From here enter the `PGADMIN_DEFAULT_EMAIL` & `PGADMIN_DEFAULT_PASSWORD` specified in the container
+3. Navigate to [http://localhost:5050](http://localhost:5050) which will give you a pgAdmin instance. From here enter the `PGADMIN_DEFAULT_EMAIL` & `PGADMIN_DEFAULT_PASSWORD` specified in the container
 
-3. You need to create a server...
+4. You need to create a server...
 
 - Right click on `Servers` and select `Register`
 - Enter a name
 - On the connection tab set the `Host name/address` to `postgres` set the `Username` and `Password` to the values specified in the container for `POSTGRES_USER` & `POSTGRES_PASSWORD`
 
-4. Update your `.env.local` file so that it has the correct connection URI. The `DB_URL` env var needs to be set in this format `postgresql://USER:PASSWORD@INTERNAL_HOST:PORT/DATABASE`. So if you set your `Server` name as test you should end up with something like `postgresql://admin:root@localhost:5432/test_db`
+5. Update your `.env.local` file so that it has the correct connection URI. The `DB_URL` env var needs to be set in this format `postgresql://USER:PASSWORD@INTERNAL_HOST:PORT/DATABASE`. You should end up with something like `postgresql://admin:root@localhost:5432/test_db`
 
-5. To create database migration files, run `npx drizzle-kit generate`. This will create SQL migration files in the `drizzle` folder based on the table configurations in `models.ts`. **Please note this is only required for first time set up or if you are making changes to model.ts. You can skip to step 8, running `npm run migrate` for existing set ups!**
+6. To create database migration files, run `npx drizzle-kit generate`. This will create SQL migration files in the `drizzle` folder based on the table configurations in `models.ts`. **Please note this is only required for first time set up or if you are making changes to model.ts. You can skip to step 9, running `npm run migrate` for existing set ups!**
 
-6. To apply the migrations, run `npm run migrate`. This will execute the migration files and update your database schema.
+7. To apply the migrations, run `npm run migrate`. This will execute the migration files and update your database schema.
 
-7. Once setup, you can also use `npx drizzle-kit studio` for a nice simple database UI
+8. Once setup, you can also use `npx drizzle-kit studio` for a nice simple database UI
 
-8. If you are running multiple containerised DB's within this project or others you should update the ports on each one running to avoid conflicts
+9. If you are running multiple containerised DB's within this project or others you should update the ports on each one running to avoid conflicts
 
 ```yaml
 services:
@@ -95,13 +102,13 @@ Drizzle stores and generates a number of files to track migrations occurring wit
 
 If things become out of sync, you may need to remove your docker [volume](https://docs.docker.com/engine/storage/volumes/) and start the local DB instance again!
 
-1. `docker-compose -f src/db/postgres-local/compose.yaml down`
+1. `docker-compose -f app/db/postgres-local/compose.yaml down`
 
 2. `docker volume rm postgres-local_postgres-data`
 
-3. `docker-compose -f src/db/postgres-local/compose.yaml up -d`
+3. `docker-compose -f app/db/postgres-local/compose.yaml up -d`
 
-4. Register server again following step 3 from the above section
+4. Register server again following step 4 from the above section
 
 5. `npm run migrate`
 
