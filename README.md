@@ -37,6 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # Docs
 
+- [Taking Clerk to Production (Great info on OAuth creds for Google)](https://www.youtube.com/watch?v=qKU6MQp-g7w)
 - https://orm.drizzle.team/docs/get-started/neon-new
 - https://neon.com/docs/guides/nextjs
 - https://www.better-auth.com/docs/installation
