@@ -34,6 +34,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - No redirect after sign up from email / password
 - Local dev DB setup
 - Convert to vitest
+- test commit
 
 # Docs
 
